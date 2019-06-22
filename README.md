@@ -1,4 +1,4 @@
-## Captcha recognition with CNN (resNet)
+## Captcha recognition with CNN (ResNet)
 #### Dependence:
 - System: windows 10
 - GPU: RTX 2080
@@ -9,7 +9,7 @@
 
 #### General idea:
 - Generate captcha-label pairs with captcha module
-- Train CNN (resNet) model on generative training dataset
+- Train CNN (ResNet) model on generative training dataset
 - Main reference: [CNN_captcha](https://github.com/braveryCHR/CNN_captcha)
 
 ### Data preparation/processing
@@ -43,7 +43,7 @@ python main.py
 - Visdom.py
 ```
 #### Models:
-- setup resNet model as main structure
+- setup ResNet model as main structure
 - use softmax for multi-class classification (single-char level)
 - treat 4 chars (one captcha content) as one example for accuracy calculation (uppercase and lowercase is recognized different)
 - size of saved model is around 40 M
@@ -76,6 +76,6 @@ Implement with flask module and single response time is around 60 ms (test with 
 Why is it that current classfication result is much better than [python-captcha-recognition](https://github.com/shishishu/python-captcha-recognition)? 
 - Labels are always correct in custom_captcha_image rather than ocr methods
 - Uppercase and lowercase is recognized different in current training process (total 62 classes) while all the letters are converted to lowercase and then do classification (total 36 classes) before
-- Num of training examples is much higher and deep learning model (resNet here) is more suitable
+- Num of training examples is much higher and deep learning model (ResNet here) is more suitable
 - End-to-end training: raw captcha iamge -> labels, no image preprocessing involved
 - It is scalable to different web styles (changes in captcha generation is required only)
